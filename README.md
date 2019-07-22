@@ -15,4 +15,4 @@ becomes:
 <script src="eraser.js"></script>
 
 
-*I built the pages with node express and didn't have the time to reedit the files.*
+*I built the pages with node express and didn't have the time to re-edit the files.*
