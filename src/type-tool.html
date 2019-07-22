@@ -1,0 +1,476 @@
+<?php
+/*
+ Redirect for none 'www' containing URL requests
+*/
+if (strpos($_SERVER['HTTP_HOST'], 'www') === false) {
+    $protocol = isset($_SERVER['HTTPS']) && filter_var($_SERVER['HTTPS'], FILTER_VALIDATE_BOOLEAN)
+        ? 'https'
+        : 'http';
+    header(
+        "Location: $protocol://www." . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+        true,
+        301
+    );
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Gifgit - Free Online Image Editor | Add Text to Image</title>
+		<!-- search engine stuff -->
+		<meta name="description" content="Add text to your images with the type tool.">		
+		<meta name="author" content="GIFGIT"/>	
+		<meta name="keywords" content="type tool, online image text tool">
+		<!--  -->
+
+		<!-- for the favicon -->
+		<!--
+		<link rel="icon" type="image/png" href="https://storage.googleapis.com/gifgit_website_resources/icon16.png" />
+		-->
+	
+		<!-- Add icon library for download button-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<!-- menu bar bar styles -->
+		<link rel="stylesheet" href="/styles/menubar.css" type="text/css">		
+		
+		<!-- tool page styles -->
+		<link rel="stylesheet" href="/styles/toolpage.css" type="text/css">
+		
+		<!-- jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		
+		<!-- mustache template engine -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+		
+		<!-- raphael svg library -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.8/raphael.min.js"></script> -->
+
+		<!-- google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+		<style>
+
+			 .select-editable {
+				 position:relative;
+				 background-color:white;
+				 border: 1px solid #111111;
+				 width:60px;
+				 height:18px;
+			 }
+			 .select-editable select {
+				 position:absolute;
+				 top:0px;
+				 left:0px;
+				 font-size:14px;
+				 border:none;
+				 width:60px;
+				 margin:0;
+			 }
+			 .select-editable input {
+				 position:absolute;
+				 top:0px;
+				 left:0px;
+				 width:40px;
+				 padding:1px;
+				 font-size:12px;
+				 border:none;
+			 }
+			 .select-editable select:focus, .select-editable input:focus {
+				 outline:none;
+			 }
+			 
+
+			 
+			 
+			
+			 .font-family-select-editable {
+				 position:relative;
+				 background-color:white;
+				 border: 1px solid #111111;
+				 width:60px;
+				 height:18px;
+			 }
+			 .font-family-select-editable select {
+				 position:absolute;
+				 top:0px;
+				 left:0px;
+				 font-size:14px;
+				 border:none;
+				 width:60px;
+				 margin:0;
+			 }
+			 .font-family-select-editable input {
+				 position:absolute;
+				 top:0px;
+				 left:0px;
+				 width:40px;
+				 padding:1px;
+				 font-size:12px;
+				 border:none;
+			 }
+			 .font-family-select-editable select:focus, .select-editable input:focus {
+				 outline:none;
+			 }
+		</style>		
+    </head>
+
+    <body>
+	
+		<div id="tata" style="position: absolute; top: -10000px; left: 0px;">
+		tata
+		</div>
+	
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+	
+        <header>
+			gifgit
+        </header>
+        
+        <div style="display: none; z-index: 1000000; position: absolute; top: 250px; left: 250px;">
+			<input type="button" id="testBtn" value="Test Button">
+        </div>
+		
+        <nav>
+
+			<div style="padding: 0px 10px 0px 0px; font-family: helvetica;">
+				<div style="float: left;">
+					<div id="menu_links">
+					</div>
+				</div>
+				<div style="float: right; padding: 4px 20px 0px 0px; color: rgb(140, 140, 140); font-size: 12px;">
+
+					<!--
+					<a href="/tutorials" style="color: rgb(140, 140, 140);">Tutorials</a>
+					|
+					<a href="/about" style="color: rgb(140, 140, 140);">About</a>
+					-->
+			
+					<div style="float: left; padding: 4px 6px 0px 0px;">
+						<a href="/about" style="color: rgb(140, 140, 140); text-decoration: none;">About</a>
+						|
+					</div>	
+					<div style="float: left; padding: 4px 6px 0px 0px;">
+						<a href="/learn" style="color: rgb(140, 140, 140); text-decoration: none;">Learn</a>
+						|
+					</div>						
+					<div style="float: left; padding: 4px 6px 0px 0px;">
+						<a href="/tutorials" style="color: rgb(140, 140, 140); text-decoration: none;">Tutorials</a>
+					</div>						
+					<div style="float: left; display: none;">
+						<div class="fb-like" data-href="https://www.gifgit.com" colorscheme="dark" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+					</div>
+					<div style="clear: both;"></div>
+
+				</div>
+				<div style="clear: both;"></div>
+			</div>			
+		
+			<div id="editOptionsDiv">	
+
+				<div>
+					<div style="float: left; padding: 0px 10px 0px 0px;">
+						<img src="https://storage.googleapis.com/gifgit_website_resources/images/toolicons/type-tool-icon.svg">							
+					</div>
+					<div style="float: left; padding: 6px 0px 0px 0px;">
+						<!-- type tool parameter -->
+						<div>
+							<div style="float: left; padding: 0px 10px 0px 0px;">
+								Edit
+							</div>
+							<div style="float: left; padding: 0px 10px 0px 0px;">
+								<div style="position: relative;">
+									<input type="text" id="previewText" value="" placeholder="Enter text" style="user-select: none;" readonly>
+									<div id="editTextInputDiv" style="display: none; z-index: 1000; position: absolute; top: 40px; left: 0px; text-align: left; padding: 10px; background-color: rgb(32, 33, 36); border-radius: 2px; border: 1px solid rgb(29, 30, 33)">
+										<textarea id="editTextInput" cols="50" rows="5"></textarea>
+										<span style="color: rgb(120, 120, 120); font-size: 12px;">
+											Tip 
+										</span>
+										<span style="color: rgb(120, 120, 120); font-size: 12px;">
+											- select text in this textbox to apply styles.
+										</span>
+									</div>
+								</div>
+							</div>
+							<div style="float: left; padding: 0px 10px 0px 0px;">
+								<input type="color" id="fontColorSelect" name="body" value="#ffffff">
+							</div>
+							<div style="float: left; padding: 0px 10px 0px 0px;">
+								<!--
+								<div class="select-editable">
+									<select id="fontFamilySelect">
+									  <option value="arial">Arial</option>
+									  <option value="times new roman">Times New Roman</option>
+									  <option value="verdana">Verdana</option>
+									  <option value="helvetica">Helvetica</option>
+									  <option value="impact">Impact</option>
+									</select>
+									<input id="fontFamilyTxt" type="text" name="format" value="arial" />
+								</div>
+								-->
+								<div class="font-family-select-editable">
+									<select id="fontFamilySelect">
+										<option value="Arial">Arial</option>
+										<option value="Arial Black">Arial Black</option>
+										<option value="Bookman">Bookman</option>
+										<option value="Comic Sans MS">Comic Sans MS</option>
+										<option value="Courier">Courier</option>
+										<option value="Courier New">Courier New</option>
+										<option value="Garamond">Garamond</option>
+										<option value="Georgia">Georgia</option>
+										<option value="Helvetica">Helvetica</option>
+										<option value="Impact">Impact</option>
+										<option value="Palatino">Palatino</option>
+										<option value="Times">Times</option>
+										<option value="Times New Roman">Times New Roman</option>
+										<option value="Trebuchet MS">Trebuchet MS</option>
+										<option value="Verdana">Verdana</option>
+									</select>
+									<input id="fontFamilyTxt" type="text" name="format" value="Arial" />
+								</div>
+							</div>
+							<div style="float: left; padding: 0px 10px 0px 0px;">
+								<!-- http://jsfiddle.net/pjagana/49rk6ph7/ -->
+								<div class="select-editable">
+									<select id="fontSizeSelect">
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="14">14</option>
+										<option value="16">16</option>
+										<option value="18">18</option>
+										<option value="20">20</option>
+										<option value="22">22</option>
+										<option value="24">24</option>
+										<option value="26">26</option>
+										<option value="28">28</option>
+										<option value="36">36</option>
+										<option value="48">48</option>
+										<option value="72">72</option>
+									</select>
+									<input id="fontSizeTxt" type="number" name="format" value="22" />
+								</div>
+							</div>
+							<div style="float: left; padding: 0px 10px 0px 0px;">
+								<!-- <span style="color: rgb(120, 120, 120);">weight</span> -->
+								<select id="fontWeightSelect">
+								  <option value="normal">Regular</option>
+								  <option value="bold">Bold</option>
+								  <option value="bolder">Bolder</option>
+								  <option value="lighter">Lighter</option>
+								  <option value="100">100</option>
+								  <option value="200">200</option>
+								  <option value="300">300</option>
+								  <option value="400">400</option>
+								  <option value="500">500</option>
+								  <option value="600">600</option>
+								  <option value="700">700</option>
+								  <option value="800">800</option>
+								  <option value="900">900</option>
+								</select>								
+							</div>
+							<div style="float: left; padding: 0px 40px 0px 0px;">
+								<span title="Italic" style="color: rgb(60, 60, 60); font-style: italic; font-family: times new roman; font-size: 21px;">
+									| 
+								</span>
+								 <input id="italicCheckbox" title="Italic" type="checkbox" id="scales" name="scales">
+								<span title="Italic" style="color: rgb(130, 130, 130); font-style: italic; font-family: times new roman; font-size: 21px;">
+									T
+								</span>
+							</div>
+							<div style="float: left;">
+								<input type="button" id="resetTypeBtn" value="Cancel" style="display: none;">
+								<input type="button" id="applyEditBtn" value="Add Text" style="display: none;">	
+								<input type="button" style="display: none;" id="testTypeBtn" value="Test">
+							</div>
+							<!--
+							<div style="float: left;">
+								<input type="button" id="boldBtn" value="B">
+							</div>
+							<div style="float: left;">
+								<input type="button" id="italicBtn" value="I">
+							</div>
+							<div style="float: left;">
+								<input type="button" id="underlineBtn" value="U">
+							</div>
+							-->
+							<div style="clear: both;"></div>
+						</div>
+						
+					</div>
+					<div style="clear: both;"></div>
+				</div>						
+
+			</div>	
+        </nav>	
+		
+		<aside id="floatingtoolbox">
+			<!-- <span style='color: red;'>Something here</span> -->
+		</aside>
+
+        <section id="workspaceSection">
+			
+			<div id="toolbox">
+
+				<!--
+					The tool buttons are loaded by the template engine in tooltemplate.js
+				-->
+				<!--
+				<a href="/image/rectangular-marquee-tool">
+					<img src="https://storage.googleapis.com/gifgit_website_resources/images/toolicons/rectangular-marquee-tool-icon.svg" title="Rectangular marquee tool">
+				</a>
+				<br>
+				-->
+
+			</div>
+			
+			<div id="editorbox">
+
+			
+				<!-- No HTML5 Local storage -->
+				<div id="notSupportedDiv">
+					<span id="supportMsgLbl">Your browser doesn't support Web Storage.</span>
+				</div>
+			
+				<!-- Uploader if there is no edit image in local storage -->
+				<div id="uploadImgDiv">
+				
+					<!--
+					<div style="margin: 0px 0px 35px 0px;">
+						<span style="color: #3399CC; font-size: 38px; font-weight: bold;">Gifgit</span>
+						<br>
+						<span style="color: #3399CC; font-size: 18px; font-weight: bold;">Free Online Image Editor</span>
+					</div>
+					-->
+					
+					<div id="drop_zone">
+						<div style="margin: 0px 0px 5px 0px;">
+						
+							<span style="font-size: 38px; font-weight: bold; line-height: 55px;">Gifgit</span>
+							<br>
+							<span style="font-weight: 400; font-size: 22px; font-family: arial;">online image editor</span>
+
+						</div>
+						<div>
+							<!-- <input type="button" value="Browse computer" onclick="document.getElementById('fileinput').click();"> -->
+							<!-- 
+								the div immediately following is used to offset and center the <input file button> and associated text because
+								it was always shifted to the right and couldn't be centered without an offset
+							-->
+							<div style="display: block; width: 400px; text-align: left; margin: auto;">
+								<div style="padding: 12px 0px 10px 95px;">
+									<input type="file" id="fileinput" accept="image/*" style="border: 0px solid #cccccc;">
+								</div>
+							</div>
+							<!-- 
+							<input type="button" onclick="fileinput.click();" style="background-color: rgb(20, 115, 230); border: 0px; color: #fff; font-weight: bold; padding: 10px 15px; cursor: pointer;" value="Open File">
+							-->
+						</div>
+						<div>
+							<span style="font-size: 14px; color: rgb(180, 180, 180);">
+							Or 
+							<br>
+							drag and drop image in box
+							</span>
+						</div>
+					</div>
+				</div>
+				
+				<div style="display: none;">
+					<span id="infoLbl"></span>
+				</div>
+				
+				<div id="editorDiv">
+								
+					<!-- Workspace -->
+					<div id="workspaceContainerDiv">
+						<!-- WARNING - put nothing in here but the next two children div -->
+						<div id="workspaceDiv">
+							<!-- 
+								canvas div holds the editor canvas with a transparent background thumbnail 
+								It is resized to the editor canvas size. and is set to be automatically centered
+							-->
+							<div id="canvasDiv">
+								<!-- editor canvas thats hold the edit image -->
+								<canvas id="editorCanvas"></canvas>
+							</div>
+						</div>
+						<!-- 
+							div that contains canvas for tool graphics (toolDrawCanvas)
+							It is set to the size of workspaceDiv after image loading in the editor
+							it is absolutely positioned 0,0 to the workspaceContainerDiv and hovers
+							over workspaceDiv.
+						-->
+						<div id="editToolsDrawingsDiv">
+							<!-- canvas for tool graphics -->
+							<canvas id="toolDrawCanvas" style="pointer-events: none;"></canvas>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div id="workingCanvasDiv" style="display: none; padding: 0px 0px 80px 0px;">
+					<canvas id="selectionCanvas"></canvas>	
+				</div>					
+				
+			</div>	
+			<div id="rightbox">
+				<!-- workspace right panel -->
+				<!-- will be filled by the toolpage template -->
+			</div>
+			<div style="clear: both;"></div>
+        </section>	
+		
+		<aside id="floatingpanels">
+			<!-- <span style='color: red;'>Something here</span> -->
+		</aside>
+
+		<section>
+			<div id="subEditorContent">
+				<div>
+
+					<h3>
+						Online Image Text Tool
+					</h3>
+
+					<div>
+						<ol style="line-height: 28px;">
+						  <li>Upload an image using the form above.</li>
+						  <li>Use the tool options bar to select the font family, size and style attributes of the text you will add.</li>
+						  <li>Click and drag to create the textbox.</li>
+						  <li>Type your text in the textbox and press 'Add Text' to add the text to the image.</li>
+						</ol>
+					</div>
+					
+					<div>
+						Use the online type tool to add text to your image. The text is added in its own layer. 
+					</div>
+					
+				</div>
+			</div>
+		</section>		
+        
+        <footer style="text-align: center;">
+            <p>Copyright 2019 Gifgit - All rights reserved
+        </footer>
+		
+		<script src="/scripts/tools/magic-wand.js"></script>
+		<script src="/scripts/tools/editor-utils.js"></script>
+		<script src="/scripts/tools/toolpagetemplate.js"></script>
+		<script src="/scripts/tools/template-layers.js"></script>
+		<script src="/scripts/tools/assetmanager.js"></script>	
+		<script src="/scripts/tools/editstack.js"></script>
+		<script src="/scripts/tools/editengine.js"></script>	
+		<script src="/scripts/tools/renderengine.js"></script>			
+		<script src="/scripts/tools/type-tool.js"></script>
+		<script src="/scripts/tools/menubar.js"></script>
+
+    </body>
+</html>
+		

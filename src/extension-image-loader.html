@@ -1,0 +1,136 @@
+<html>
+	<head>
+		<title>Gifgit - Load Editor</title>
+		<!-- for the favicon -->
+		<!-- <link rel="icon" type="image/png" href="https://storage.googleapis.com/gifgit_website_resources/icon16.png" /> -->
+		
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+				/*font-family: Segoe UI,helvetica;*/
+				font-family: arial;
+				overflow-y: scroll;
+				/*background-color: #ffffff;*/
+				background-color: rgb(34, 35, 38);
+				/*background-color: rgb(68, 68, 68);*/
+			}	
+
+			/*
+			https://www.w3.org/Style/Examples/007/center.en.html
+			*/
+			div.container4 {
+				height: 10em;
+				position: relative 
+				height: 100%;
+				text-align: center;
+			}
+			div.container4 p {
+				margin: 0;
+				/*background: yellow;*/
+				position: absolute;
+				top: 40%;
+				left: 50%;
+				margin-right: -50%;
+				transform: translate(-50%, -50%) 
+			}	
+			
+			
+			.lds-ellipsis {
+			  display: inline-block;
+			  position: relative;
+			  width: 64px;
+			  height: 64px;
+			}
+			.lds-ellipsis div {
+			  position: absolute;
+			  top: 27px;
+			  width: 11px;
+			  height: 11px;
+			  border-radius: 50%;
+			  background: #fff;
+			  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+			}
+			.lds-ellipsis div:nth-child(1) {
+			  left: 6px;
+			  animation: lds-ellipsis1 0.6s infinite;
+			}
+			.lds-ellipsis div:nth-child(2) {
+			  left: 6px;
+			  animation: lds-ellipsis2 0.6s infinite;
+			}
+			.lds-ellipsis div:nth-child(3) {
+			  left: 26px;
+			  animation: lds-ellipsis2 0.6s infinite;
+			}
+			.lds-ellipsis div:nth-child(4) {
+			  left: 45px;
+			  animation: lds-ellipsis3 0.6s infinite;
+			}
+			@keyframes lds-ellipsis1 {
+			  0% {
+				transform: scale(0);
+			  }
+			  100% {
+				transform: scale(1);
+			  }
+			}
+			@keyframes lds-ellipsis3 {
+			  0% {
+				transform: scale(1);
+			  }
+			  100% {
+				transform: scale(0);
+			  }
+			}
+			@keyframes lds-ellipsis2 {
+			  0% {
+				transform: translate(0, 0);
+			  }
+			  100% {
+				transform: translate(19px, 0);
+			  }
+			}
+		
+		</style>
+	</head>
+	<body>
+	
+		<!--
+		<textarea id="extensionImageData"></textarea>
+		-->
+		
+		<div class="container4">
+			<p>
+				<span style="color: rgb(218, 220, 224); font-size: 30px;">
+					www.gifgit.com
+				</span>
+				<br>
+				<span style="color: rgb(168, 170, 174); font-size: 14px; padding: 8px 0px 0px 0px; line-height: 2.5em;">
+					online image editing
+				</span>	
+			</p>			
+		</div>		
+		
+		<!--
+		<div>
+			<div>
+				<span style="color: rgb(218, 220, 224); font-size: 28px;">
+					www.gifgit.com
+				</span>
+			</div>
+			<div>
+				<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+			</div>
+		</div>
+		-->
+		
+		<img id="gifgit_extensionImage" style="display: none;">
+		
+		<script src="/scripts/tools/assetmanager.js"></script>
+		<script src="/scripts/tools/editstack.js"></script>	
+		<script src="/scripts/tools/editengine.js"></script>		
+		<script src="/scripts/tools/extension-image-loader.js"></script>
+		
+	</body>	
+</html>

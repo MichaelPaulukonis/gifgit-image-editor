@@ -1,0 +1,340 @@
+<?php
+/*
+ Redirect for none 'www' containing URL requests
+*/
+if (strpos($_SERVER['HTTP_HOST'], 'www') === false) {
+    $protocol = isset($_SERVER['HTTPS']) && filter_var($_SERVER['HTTPS'], FILTER_VALIDATE_BOOLEAN)
+        ? 'https'
+        : 'http';
+    header(
+        "Location: $protocol://www." . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+        true,
+        301
+    );
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Gifgit - Free Online Image Editor | Brush Tool</title>
+		<!-- search engine stuff -->
+		<meta name="description" content="Online image brush tool.">		
+		<meta name="author" content="GIFGIT"/>	
+		<meta name="keywords" content="image brush, brush tool, online brush tool, online image brush, online image editor">
+		
+		<!-- facebook -->
+		<!-- You can use open graph tags to customize link previews.
+		Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+		<meta property="og:url"           content="https://www.gifgit.com" />
+		<meta property="og:type"          content="website" />
+		<meta property="og:title"         content="Gifgit.com Free Online Image Editor" />
+		<meta property="og:description"   content="Edit your images online at gifgit.com" />
+		<!-- <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" /> -->
+		
+		<!-- for the favicon -->
+		<!--
+		<link rel="icon" type="image/png" href="https://storage.googleapis.com/gifgit_website_resources/icon16.png" />
+		-->
+	
+		<!-- Add icon library for download button-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<!-- menu bar bar styles -->
+		<link rel="stylesheet" href="/styles/menubar.css" type="text/css">		
+		
+		<!-- tool page styles -->
+		<link rel="stylesheet" href="/styles/toolpage.css" type="text/css">
+		
+		<!-- jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		
+		<!-- mustache template engine -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+
+		<!-- google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    </head>
+
+    <body>
+	
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
+	
+        <header>
+			gifgit
+        </header>
+        
+        <div style="display: none;">
+			<input type="button" id="testBtn" style="display: none;" value="Clear Local Storage">
+        </div>
+		
+        <nav>
+			<!--
+			<div style="">
+				<div style="float: left;">
+					<span style="font-size: 12px; color: rgb(160, 160, 160);">Other links here</span>
+				</div>
+				<div style="float: right;">
+					<span style="font-size: 12px; color: rgb(160, 160, 160);">Other links here</span>
+				</div>
+				<div style="clear: both;"></div>
+			</div>			
+			-->
+			<div style="padding: 0px 10px 0px 0px; font-family: helvetica;">
+				<div style="float: left;">
+					<div id="menu_links">
+					</div>
+				</div>
+				<div style="float: right; padding: 4px 20px 0px 0px; color: rgb(140, 140, 140); font-size: 12px;">
+
+					<!--
+					<a href="/tutorials" style="color: rgb(140, 140, 140);">Tutorials</a>
+					|
+					<a href="/about" style="color: rgb(140, 140, 140);">About</a>
+					-->
+			
+					<div style="float: left; padding: 4px 6px 0px 0px;">
+						<a href="/about" style="color: rgb(140, 140, 140); text-decoration: none;">About</a>
+						|
+					</div>	
+					<div style="float: left; padding: 4px 6px 0px 0px;">
+						<a href="/learn" style="color: rgb(140, 140, 140); text-decoration: none;">Learn</a>
+						|
+					</div>						
+					<div style="float: left; padding: 4px 6px 0px 0px;">
+						<a href="/tutorials" style="color: rgb(140, 140, 140); text-decoration: none;">Tutorials</a>
+					</div>						
+					<div style="float: left; display: none;">
+						<div class="fb-like" data-href="https://www.gifgit.com" colorscheme="dark" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+					</div>
+					<div style="clear: both;"></div>
+					
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+
+			<div id="editOptionsDiv">	
+				<div>
+					<div style="float: left; padding: 0px 10px 0px 0px;">
+						<img src="https://storage.googleapis.com/gifgit_website_resources/images/toolicons/brush-tool-icon.svg">							
+					</div>
+					<div style="float: left; padding: 6px 0px 0px 0px;">
+			
+						<div id="brushToolOptions" class="tool-option" style="text-align: center;">
+							Brush &nbsp;&nbsp;  
+							Size: <input type="number" id="brushSizeInput" value="12" min="1" max="200" style="width: 50px;">
+							Blur: <input type="number" id="brushBlurInput" value="0" max="100" min="0" style="width: 50px;">
+							Opacity: <input type="number" id="brushAlphaInput" value="100" max="100" style="width: 50px;">
+							Blend Mode:
+							<select id="brushBlendingModeInput">
+							  <option value="source-over">Normal</option>
+							  <option value="lighter">Lighter</option>
+							  <option value="multiply">Multiply</option>
+							  <option value="screen">Screen</option>
+							  <option value="overlay">Overlay</option>
+							  <option value="darken">Darken</option>
+							  <option value="lighten">Lighten</option>
+							  <option value="color-dodge">Color Dodge</option>
+							  <option value="color-burn">Color Burn</option>
+							  <option value="hard-light">Hard Light</option>
+							  <option value="soft-light">Soft Light</option>
+							  <option value="difference">Difference</option>
+							  <option value="exclusion">Exclusion</option>
+							  <option value="hue">Hue</option>
+							  <option value="saturation">Saturation</option>
+							  <option value="color">Color</option>
+							  <option value="luminosity">Luminosity</option>
+							</select>
+						</div>	
+						
+					</div>
+					<!--
+					<div style="display: none; float: left; padding: 4px 0px 0px 10px;">
+						<select id="layerSelector">
+							<option value="1">Layer 1</option>
+							<option value="0">Layer 0</option>						
+						</select>
+					</div>
+					-->
+					<div style="clear: both;"></div>
+				</div>	
+			</div>			
+        </nav>	
+		
+		<aside id="floatingtoolbox">
+			<!-- <span style='color: red;'>Something here</span> -->
+		</aside>
+		 
+        <section id="workspaceSection">
+			
+			<div id="toolbox">
+
+				<!--
+					The tool buttons are loaded by the template engine in tooltemplate.js
+				-->
+				<!--
+				<a href="/image/rectangular-marquee-tool">
+					<img src="https://storage.googleapis.com/gifgit_website_resources/images/toolicons/rectangular-marquee-tool-icon.svg" title="Rectangular marquee tool">
+				</a>
+				<br>
+				-->
+
+			</div>	
+			
+			<div id="editorbox">
+			
+				<!-- No HTML5 Local storage -->
+				<div id="notSupportedDiv">
+					<span id="supportMsgLbl">Your browser doesn't support Web Storage.</span>
+				</div>
+			
+				<!-- Uploader if there is no edit image in local storage -->
+				<div id="uploadImgDiv">
+				
+					<!--
+					<div style="margin: 0px 0px 35px 0px;">
+						<span style="color: #3399CC; font-size: 38px; font-weight: bold;">Gifgit</span>
+						<br>
+						<span style="color: #3399CC; font-size: 18px; font-weight: bold;">Free Online Image Editor</span>
+					</div>
+					-->
+					
+					<div id="drop_zone">
+						<div style="margin: 0px 0px 5px 0px;">
+						
+							<span style="font-size: 38px; font-weight: bold; line-height: 55px;">Gifgit</span>
+							<br>
+							<span style="font-weight: 400; font-size: 22px; font-family: arial;">online image editor</span>
+
+						</div>
+						<div>
+							<!-- <input type="button" value="Browse computer" onclick="document.getElementById('fileinput').click();"> -->
+							<!-- 
+								the div immediately following is used to offset and center the <input file button> and associated text because
+								it was always shifted to the right and couldn't be centered without an offset
+							-->
+							<div style="display: block; width: 400px; text-align: left; margin: auto;">
+								<div style="padding: 12px 0px 10px 95px;">
+									<input type="file" id="fileinput" accept="image/*" style="border: 0px solid #cccccc;">
+								</div>
+							</div>
+							<!-- 
+							<input type="button" onclick="fileinput.click();" style="background-color: rgb(20, 115, 230); border: 0px; color: #fff; font-weight: bold; padding: 10px 15px; cursor: pointer;" value="Open File">
+							-->
+						</div>
+						<div>
+							<span style="font-size: 14px; color: rgb(180, 180, 180);">
+							Or 
+							<br>
+							drag and drop image in box
+							</span>
+						</div>
+					</div>
+				</div>
+				
+				<div style="display: none; position: fixed; top: 0px; right: 100px; z-index: 50000000; color: #ff0000;">
+					<span id="infoLbl"></span>
+				</div>
+				
+				<div id="editorDiv">
+							
+					<!-- Workspace -->
+					<div id="workspaceContainerDiv">
+						<!-- WARNING - put nothing in here but the next two children div -->
+						<div id="workspaceDiv">
+							<!-- 
+								canvas div holds the editor canvas with a transparent background thumbnail 
+								It is resized to the editor canvas size. and is set to be automatically centered
+							-->
+							<div id="canvasDiv">
+								<!-- editor canvas thats hold the edit image -->
+								<canvas id="editorCanvas"></canvas>
+							</div>
+						</div>
+						<!-- 
+							div that contains canvas for tool graphics (toolDrawCanvas)
+							It is set to the size of workspaceDiv after image loading in the editor
+							it is absolutely positioned 0,0 to the workspaceContainerDiv and hovers
+							over workspaceDiv.
+						-->
+						<div id="editToolsDrawingsDiv">
+							<!-- canvas for tool graphics -->
+							<canvas id="toolDrawCanvas" style="pointer-events: none;"></canvas>
+						</div>
+					</div>
+					
+				</div>
+								
+				<div id="workingCanvasDiv" style="display: none; padding: 0px 0px 80px 0px;">
+					<canvas id="strokeCanvas"></canvas>
+					<br>
+					<div style="float: left;">
+						<canvas id="eraserCanvas"></canvas>
+					</div>
+					<div style="float: left;">
+						<canvas id="clippingCanvas"></canvas>
+					</div>
+					<div style="clear: both;"></div>
+					<br>
+					<canvas id="selectionCanvas"></canvas>	
+				</div>
+				
+				<div id="testingDiv">
+				</div>
+								
+			</div>	
+			<div id="rightbox">
+				<!-- workspace right panel -->
+				<!-- will be filled by the toolpage template -->
+			</div>
+			<div style="clear: both;"></div>
+        </section>
+		
+		<aside id="floatingpanels">
+			<!-- <span style='color: red;'>Something here</span> -->
+		</aside>
+		
+		<section>
+			<div id="subEditorContent">
+				<div>
+				
+					<h3>
+						Online Brush Tool
+					</h3>
+
+					<div>
+						<ol style="line-height: 28px;">
+						  <li>Upload an image using the form above.</li>
+						  <li>Brush in the image to add color to the image using the brush strokes.</li>
+						  <li>Adjust the settings in the tool options bar to set the size of the brush tool, its' hardness, opacity and blend mode.</li>
+						</ol>
+					</div>
+					
+					<div>
+						The brush tool is used to add color to an image using strokes. <a href="/user-guide/tools/using-the-brush-tool" style="color: #6b6b6b; font-size: 14px; font-weight: normal; text-decoration: underline;">Learn more &raquo;</a>
+					</div>
+					
+				</div>
+			</div>	
+		</section>
+        
+        <footer style="text-align: center;">
+            <p>Copyright 2019 Gifgit - All rights reserved
+        </footer>
+		
+		<script src="/scripts/tools/magic-wand.js"></script>
+		<script src="/scripts/tools/editor-utils.js"></script>
+		<script src="/scripts/tools/toolpagetemplate.js"></script>
+		<script src="/scripts/tools/template-layers.js"></script>
+		<script src="/scripts/tools/assetmanager.js"></script>
+		<script src="/scripts/tools/editstack.js"></script>	
+		<script src="/scripts/tools/editengine.js"></script>
+		<script src="/scripts/tools/renderengine.js"></script>			
+		<script src="/scripts/tools/brush.js"></script>
+		<script src="/scripts/tools/menubar.js"></script>
+    </body>
+</html>
+		

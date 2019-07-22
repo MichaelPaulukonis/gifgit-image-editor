@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>App Data & Settings</title>
+		<style>
+			body{
+				font-family: arial;
+			}
+			
+			#dataListTable {
+				border-collapse: collapse;			
+			}
+			
+			#dataListTable th, td {
+			  border: 1px solid black;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<p>
+			<span style="font-size: 16px; font-weight: bold; text-decoration: underline;">All Data List</span>
+		</p>
+		<p>
+			<input id="clearAllDataBtn" type="button" value="Clear All Data">
+		</p>
+		<div id="dataList">
+			<table id="dataListTable">
+				<tr>
+					<td>
+						Field name
+					</td>
+					<td>
+						Data
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<script src="/scripts/tools/appdata.js"></script>
+</html>

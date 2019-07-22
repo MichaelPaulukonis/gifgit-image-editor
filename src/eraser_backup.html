@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Gifgit - Eraser tool</title>
+		<!-- search engine stuff -->
+		<meta name="description" content="Change pixels to transparent with the online image eraser tool.">		
+		<meta name="author" content="GIFGIT"/>	
+		<meta name="keywords" content="image eraser, eraser tool">
+		<!--  -->
+
+		
+		<!-- for the favicon -->
+		<link rel="icon" type="image/png" href="https://storage.googleapis.com/gifgit_website_resources/icon16.png" />
+	
+		<!-- Add icon library for download button-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<!-- menu bar bar styles -->
+		<link rel="stylesheet" href="/styles/menubar.css" type="text/css">		
+		
+		<!-- tool page styles -->
+		<link rel="stylesheet" href="/styles/toolpage.css" type="text/css">
+		
+		<!-- jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		
+		<!-- mustache template engine -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+
+		<!-- google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+		
+		<style>
+		
+		</style>
+    </head>
+
+    <body>
+	
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+	
+        <header>
+			gifgit
+        </header>
+		
+        <div style="display: none;">
+			
+			<input type="button" id="testBtn" style="display: none;" value="Clear Local Storage">
+			<input type="button" id="testBtn1" style="display: none;" value="Test Stuff">
+
+			<input type="button" id="downloadBtn" value="Download">
+			<input type="button" id="newfileBtn" value="New File">
+			<input type="button" id="undoBtn" value="Undo">
+			<input type="button" id="redoBtn" value="Redo">
+        </div>
+		
+        <nav>
+			<div style="float: left;">
+				<div class="navbar">
+				  <a href="/" onmouseover="closeAllDropdowns();">Home</a>
+				  <div class="dropdown">
+					  <div class="dropbtn" onmouseover="showFileDropdown()">
+						File
+					  </div>
+					  <div class="dropdown-content" id="fileDropdown">
+						<a  id="fileNewMenuBtn"><span>New</span></a>
+						<a  id="fileOpenMenuBtn"><span style="opacity: 1;">Open</span></a>
+						<a id="fileDownloadMenuBtn"><span>Save Image</span></a>
+					  </div>
+				  </div> 
+				  <div class="dropdown">
+					  <div class="dropbtn" onmouseover="showEditDropdown()">
+						Edit
+					  </div>
+					  <div class="dropdown-content" id="editDropdown">
+						<a id="undoMenuBtn" ><span>Undo</span></a>
+						<a id="redoMenuBtn" ><span>Redo</span></a>
+					  </div>
+				  </div> 
+				  <div class="dropdown">
+					  <div class="dropbtn" onmouseover="showSelectDropdown()">
+						Select
+					  </div>
+					  <div class="dropdown-content" id="selectDropdown">
+						<a id="closeSelectionMenuBtn" ><span>Close</span></a>
+						<a id="invertSelectionMenuBtn" ><span>Invert</span></a>
+						<a id="clearSelectionMenuBtn" ><span>Clear</span></a>
+						<a id="toggleViewSelectionMenuBtn" style="display: none;" ><span>Hide</span></a>
+					  </div>
+				  </div> 
+				  <div class="dropdown">
+					  <div  class="dropbtn" onmouseover="showToolDropdown()">
+						Tools
+					  </div>
+					  <div class="dropdown-content" id="toolDropdown">
+						<a href="/image/rectangular-marquee-tool">Rectangular Marquee</a>
+						<a href="/image/elliptical-marquee-tool">Elliptical Marquee</a>
+						<a href="/image/lasso-tool">Lasso</a>
+						<a href="/image/polygon-lasso-tool">Polygon Lasso</a>
+						<a href="/image/crop-tool">Crop</a>
+						<a href="/image/brush-tool">Brush</a>
+						<a href="/image/eraser-tool">Eraser</a>
+						<a href="/image/background-eraser-tool">Background Eraser </a>
+					  </div>
+				  </div> 
+				  <div class="dropdown">
+					  <div class="dropbtn" onmouseover="showFilterDropdown()">
+						Colors
+					  </div>
+					  <div class="dropdown-content" id="filterDropdown">
+						<a href="/image/blur-image">Blur</a>     
+						<a href="/image/adjust-image-brightness">Brightness</a>     
+						<a href="/image/adjust-image-contrast">Contrast</a>  
+						<a href="/image/grayscale-image">Grayscale</a>  
+						<a href="/image/adjust-image-hue">Hue</a>    
+						<a href="/image/invert-image-colors">Invert colors</a>  
+						<a href="/image/change-image-transparency">Opacity</a>
+						<a href="/image/adjust-image-saturation">Saturation</a> 
+						<a href="/image/apply-sepia">Sepia</a>      
+					  </div>
+				  </div> 
+				</div>
+			</div>
+			<div style="float: right;">
+				<!-- Right navbar items -->
+
+			</div>
+			<div style="clear: both;"></div>
+			<div style="position: absolute; top: 40px; right: 0px; height: 400px; background-color: #e2e2e2;">
+				<!-- Right Floating Panels -->
+				<div>
+					
+				</div>
+			</div>
+			<!--
+			<script>
+				// code in menubar.js
+			</script>
+			-->
+        </nav>
+		
+		<section>
+			<div id="editOptionsDiv">			
+			
+				<div>
+					<div style="float: left; padding: 0px 10px 0px 0px;">
+						<img src="https://storage.googleapis.com/gifgit_website_resources/images/toolicons/eraser-tool-icon.svg">							
+					</div>
+					<div style="float: left; padding: 4px 0px 0px 0px;">
+			
+						<div id="eraserToolOptions" class="tool-option" style="text-align: center;">
+							Eraser Tool
+							Size: <input type="number" id="eraserSizeInput" value="15" min="1" max="200" style="width: 50px;">
+							Blur: <input type="number" id="eraserBlurInput" value="0" max="100" style="width: 50px;">
+							Opacity: <input type="number" id="eraserAlphaInput" value="100" max="100" style="width: 50px;">
+						</div>
+						
+					</div>
+					<div style="clear: both;"></div>
+				</div>	
+				
+			</div>
+		</section>		
+		
+        <section id="workspaceSection">
+			
+
+			<div id="toolbox">
+
+				<!--
+					The tool buttons are loaded by the template engine in tooltemplate.js
+				-->
+				<!--
+				<a href="/image/rectangular-marquee-tool">
+					<img src="https://storage.googleapis.com/gifgit_website_resources/images/toolicons/rectangular-marquee-tool-icon.svg" title="Rectangular marquee tool">
+				</a>
+				<br>
+				-->
+
+			</div>	
+			
+			<div id="editorbox">
+
+				<!-- No HTML5 Local storage -->
+				<div id="notSupportedDiv">
+					<span id="supportMsgLbl">Your browser doesn't support Web Storage.</span>
+				</div>
+			
+				<!-- Uploader if there is no edit image in local storage -->
+				<div id="uploadImgDiv">
+					<div id="drop_zone">
+						<div>
+							<span style="font-weight: bold; font-size: 16px;">Upload image to edit</span>
+						</div>
+						<div>
+							<!-- <input type="button" value="Browse computer" onclick="document.getElementById('fileinput').click();"> -->
+							<!-- 
+								the div immediately following is used to offset and center the <input file button> and associated text because
+								it was always shifted to the right and couldn't be centered without an offset
+							-->
+							<div style="width: 400px; text-align: left; margin: auto;">
+								<div style="padding: 0px 0px 0px 95px;">
+									<input type="file" id="fileinput" accept="image/*" style="border: 0px solid #cccccc;">
+								</div>
+							</div>
+						</div>
+						<div>
+							<span style="font-size: 12px;">Or drag and drop image</span>
+						</div>
+					</div>
+				</div>
+				
+				<div style="display: none;">
+					<span id="infoLbl"></span>
+				</div>
+				
+				<div id="editorDiv">
+								
+					<!-- Workspace -->
+					<div id="workspaceContainerDiv">
+						<!-- WARNING - put nothing in here but the next two children div -->
+						<div id="workspaceDiv">
+							<!-- 
+								canvas div holds the editor canvas with a transparent background thumbnail 
+								It is resized to the editor canvas size. and is set to be automatically centered
+							-->
+							<div id="canvasDiv">
+								<!-- editor canvas thats hold the edit image -->
+								<canvas id="editorCanvas"></canvas>
+							</div>
+						</div>
+						<!-- 
+							div that contains canvas for tool graphics (toolDrawCanvas)
+							It is set to the size of workspaceDiv after image loading in the editor
+							it is absolutely positioned 0,0 to the workspaceContainerDiv and hovers
+							over workspaceDiv.
+						-->
+						<div id="editToolsDrawingsDiv">
+							<!-- canvas for tool graphics -->
+							<canvas id="toolDrawCanvas" style="pointer-events: none;"></canvas>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div id="workingCanvasDiv" style="display: none; padding: 0px 0px 80px 0px;">
+					<div style="float: left;">
+						<canvas id="eraserCanvas"></canvas>
+					</div>
+					<div style="float: left;">
+						<canvas id="clippingCanvas"></canvas>
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+				
+			</div>	
+			<div id="rightbox">
+				<!-- workspace right panel -->
+				<!-- will be filled by the toolpage template -->
+			</div>
+			<div style="clear: both;"></div>
+        </section>
+		
+		<section>
+			<!--
+				<div id="subEditorContent">
+					<div style="width: 500px; margin: auto;">
+						Use the eraser tool to clear pixels from the image using strokes.
+					</div>
+				</div>	
+			-->
+		</section>
+        
+        <footer style="text-align: center;">
+            <p>Copyright 2019 Gifgit - All rights reserved
+        </footer>
+		
+		<script src="/scripts/tools/toolpagetemplate.js"></script>
+		<script src="/scripts/tools/assetmanager.js"></script>	
+		<script src="/scripts/tools/editstack.js"></script>	
+		<script src="/scripts/tools/editengine.js"></script>		
+		<script src="/scripts/tools/eraser.js"></script>
+		<script src="/scripts/tools/menubar.js"></script>
+		
+    </body>
+</html>
+		
