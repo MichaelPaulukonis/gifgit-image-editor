@@ -7,7 +7,7 @@ https://www.gifgit.com
 
 The editor is not built with any javascript framework or with any javascript canvas library. Each image editing tool is in a dedicated page, example the eraser tool is "eraser.html". 
 
-The associated scripts for the edit tool page are in the same folder as the page so **remove the extra URL path** ("/scripts/tools/") in front of the script files.
+The associated scripts for the edit tool page are in the same folder as the page so **remove the extra URL path ("/scripts/tools/") in front of the script tags for each page**.
 
 Example for eraser.html at the bottom of the page:
 
@@ -16,4 +16,4 @@ change to:
 <script src="eraser.js"></script>
 
 
-*I built the pages with node express and didn't have the time to re-edit the files.*
+*I built the pages with node express and didn't have the time to re-edit the files. I'm busy developing.*
