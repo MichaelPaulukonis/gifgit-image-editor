@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://www.gifgit.com/gif/animated-gif-maker -->
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gifgit - Online Animated GIF Maker</title>
+	<!-- search engine stuff -->
+	<meta name="description" content="Edit and create animated GIFs with this online editor tool.">
+	<meta name="author" content="GIFGIT">
+	<meta name="keywords"
+		content="gif editor, create gif, animate gif, gif maker, create animated gif, online gif editor, online gif maker, edit gif online">
+	<!--  -->
+
+	<!-- styles -->
+	<link rel="stylesheet" href="./animated.gif.maker_files/master.css" type="text/css">
+
+	<!-- jquery -->
+	<script src="./animated.gif.maker_files/osd.js"></script>
+	<script src="./animated.gif.maker_files/f.txt"></script>
+	<script src="./animated.gif.maker_files/f(1).txt" id="google_shimpl"></script>
+	<script src="./animated.gif.maker_files/jquery.min.js"></script>
+
+	<!-- adsense connect -->
+	<script data-ad-client="ca-pub-3410459897674191" async="" src="./animated.gif.maker_files/f(2).txt"
+		data-checked-head="true"></script>
+
+	<link rel="preload" href="./animated.gif.maker_files/f(3).txt" as="script">
+	<script type="text/javascript" src="./animated.gif.maker_files/f(3).txt"></script>
+</head>
+
+<body>
+
+	<header>
+		<nav>
+			<div class="header">
+				<a href="https://www.gifgit.com/" class="logo">
+					<img src="./animated.gif.maker_files/logo.png">
+				</a>
+				<div class="header-right">
+					<a href="https://www.gifgit.com/image/brush-tool">Image</a>
+					<a class="active" href="https://www.gifgit.com/gif/animated-gif-maker">GIF</a>
+					<a href="https://www.gifgit.com/fonts/alphabetic?letter=a">Fonts</a>
+				</div>
+			</div>
+			<div style="text-align: center; border-bottom: 1px solid #f2f2f2; padding: 10px 0px;">
+				<a id="animated-gif-maker_navLink" class="gif_nav_class"
+					href="https://www.gifgit.com/gif/animated-gif-maker"
+					style="text-decoration: underline; color: #000; cursor: pointer;">Create GIF</a>
+				&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a id="edit_navLink" class="gif_nav_class" href="https://www.gifgit.com/gif/edit"
+					style="text-decoration: none; color: #000; cursor: pointer;">Edit GIF</a>
+				&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a id="crop_navLink" class="gif_nav_class" href="https://www.gifgit.com/gif/crop"
+					style="text-decoration: none; color: #000; cursor: pointer;">Crop</a>
+				&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a id="resize_navLink" class="gif_nav_class" href="https://www.gifgit.com/gif/resize"
+					style="text-decoration: none; color: #000; cursor: pointer;">Resize</a>
+				&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a id="add-text-to-gif_navLink" class="gif_nav_class" href="https://www.gifgit.com/gif/add-text-to-gif"
+					style="text-decoration: none; color: #000; cursor: pointer;">Add Text</a>
+				&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a id="effects_navLink" class="gif_nav_class" href="https://www.gifgit.com/gif/effects"
+					style="text-decoration: none; color: #000; cursor: pointer;">Effects</a>
+			</div>
+		</nav>
+	</header>
+
+	<section style="text-align: center;">
+
+		<h1 style="font-size: 45px; font-family: arial;">
+			Animated GIF Maker
+		</h1>
+
+		<div class="tool-summary">
+
+			<div id="fileLoaderDiv"
+				style="margin: auto; text-align: center; padding: 15px 0px; background-color: #fafafa; border: 1px solid #eaeaea; border-radius: 0px;">
+				<input id="fileinput" type="file" accept="image/*">
+			</div>
+
+			<div id="gifPreviewContainer"
+				style="display: none; margin: 0px 0px 10px 0px; background-color: #f2f2f4; border: 1px solid #eaeaea;">
+				<div style="padding: 15px 15px 20px 15px;">
+					<span style="color: #333; font-weight: bold;">Uploaded: </span>
+					<span id="uploaded-file-name" style="color: #666;">uploaded_file.gif</span>,
+					<span id="uploaded-file-size" style="color: #666;">0 KB</span>,
+					<span id="uploaded-gif-width" style="color: #666;"></span>,
+					<span id="uploaded-gif-height" style="color: #666;"></span>
+				</div>
+			</div>
+
+			<div id="editorContainer" style="display: none; font-size: 13px; margin: 15px auto;">
+
+				<div id="canvasSizeSelectDiv" style="display: none; margin: 0px 0px 15px 0px;">
+					<b>Select output GIF size:</b>
+					There are several image sizes in the uploaded files.
+					Select the desired output size of your GIF.
+					<div id="canvasSizeOptionsDiv">
+						<input id="customCanvasSizeRadio" type="radio" name="canvas_size_radio" value="custom">
+						<label>width:
+							<input id="customCanvasWidthInput" style="width: 50px;" list="canvasCustomWidthList"
+								name="canvas_width"></label>
+						<datalist id="canvasCustomWidthList">
+							<!-- <option value="Chrome"> -->
+						</datalist>
+						<label>height:
+							<input id="customCanvasHeightInput" style="width: 50px;" list="canvasCustomHeightList"
+								name="canvas_width"></label>
+						<datalist id="canvasCustomHeightList">
+							<!-- <option value="Chrome"> -->
+						</datalist>
+					</div>
+					<div>
+						<input type="checkbox" id="centerFrameChk" checked=""> Center frames image in canvas
+					</div>
+				</div>
+
+				<div style="padding: 15px 0px 15px 0px; line-height: 28px;">
+					<div style="float: left; padding: 0px 10px 0px 0px;">
+						<!-- <input id="createGIFBtn" type="button" value="Create Animated GIF"> -->
+						<span id="createGIFBtn"
+							style="cursor: pointer; font-family: arial; color: #fff; font-weight: bold; background-color: rgb(0,122,255); padding: 10px 16px; border-radius: 4px;">
+							Create GIF
+						</span>
+					</div>
+					<div style="float: left;">
+						&nbsp;Delay: <input type="number" id="globalDelayInput" min="5" value="80" style="width: 40px;">
+						ms (Sets delay in milliseconds on all frames)
+						<br>
+						<input id="loopForeverRadio" type="radio" name="playback" value="male" checked=""> Loop forever
+						<br>
+						<input id="loopCountRadio" type="radio" name="playback" value="female"> Play <input
+							type="number" id="loopCountInput"
+							onfocus="document.getElementById(&#39;loopCountRadio&#39;).checked=true;" value="1" min="1"
+							style="width: 40px;"> time(s)
+						<br>
+						&nbsp;Quality: <input id="gifQualityInput" type="number" value="10" style="width: 40px;">
+						(Higher value means more compression less quality and smaller file size)
+						<br>
+						<input type="color" id="canvasColorSelect" value="#ffffff"> Background Color
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+
+				<div id="timelineHeaderDiv" style="margin: 15px 0px 0px 0px; padding: 0px 2px;">
+					<input id="updateTimelineFrameSelectionBtn" type="button" value="Apply" style="font-size: 11px;">
+					<select id="timelineFrameEnableOptions">
+						<option value="deselect_range">Deselect range</option>
+						<option value="enable_range">Enable range</option>
+						<option value="deselect_all">Deselect all</option>
+						<option value="enable_all">Enable all</option>
+					</select>
+					<span>
+						start:
+						<input id="startSelectRange" type="text" value="1" style="width: 40px;">
+						end:
+						<input id="endSelectRange" type="text" value="1" style="width: 40px;">
+					</span>
+				</div>
+				<div id="timelineDiv" style="margin: 8px 0px 0px 0px">
+					<div id="endFrameDiv" style="clear: both; margin: 15px 0px 15px 0px;">
+					</div>
+				</div>
+
+				<!--
+					<div id="generatedGIFDiv" style="display: none; padding: 25px 0px 0px 0px;">
+						<img id="previewImage">
+						<br>
+						<input id="downloadBtn" type="button" value="Download"> &nbsp;Click to download.
+					</div>
+					-->
+
+			</div>
+
+
+			<!-- Generated GIF -->
+			<div id="generatedGIFDiv"
+				style="display: block; text-align: left; background-color: #f2f2f4; border: 1px dotted #ccc; margin: 25px 0px 0px 0px;">
+				<div style="padding: 15px 15px 15px 15px;">
+
+					<!-- loading counter -->
+					<div id="processLoaderDiv" style="display: none; text-align: center; margin: 15px;">
+						<span id="percentProcessedCntr"
+							style="font-size: 18px; font-weight: bold; color: #444;">0%</span>
+					</div>
+
+					<div id="croppedGIFDiv" style="display: none;">
+						<div style="float: left; margin: 0px 25px 0px 0px;">
+							<img id="previewImage">
+						</div>
+						<div style="float: left;">
+							<span style="color: #333; font-weight: bold;">Output GIF: </span>
+							<span id="cropped-file-size" style="color: #666;">0 KB</span>,
+							<span id="cropped-gif-width" style="color: #666;"></span>,
+							<span id="cropped-gif-height" style="color: #666;"></span>
+							<br><br>
+							<input id="downloadBtn" type="button" value="Download"> &nbsp;Click to download.
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+
+	<section style="padding: 15px 0px 0px 0px;">
+		<div class="tool-summary">
+			<div id="main-content">
+				<div style="color: #222; padding: 0px 20px 0px 0px;"
+					class="__reader_view_article_wrap_5587566350062954__">
+					With the online GIF maker on gifgit.com, you can quickly and easily create your animated GIFs for
+					free, with no software to download.
+					Simply upload any combination of PNG, JPG, BMP or GIF files. The files will be loaded in the
+					timeline as frames for your new animated GIF.
+					You can re-arrange frames by using drag and drop, duplicate them or uncheck them to drop them from
+					the timeline.
+
+					<h2 style="font-size: 18px;">How do I load files for my GIF?</h2>
+					Use the "Choose Files" button to open files from your computer. You can select multiple images and
+					types.
+					All files will be added to the timeline as a frame.
+					<br>
+					Image files such as JPG, BMP and PNG will be loaded as a single frame with a default delay of 80ms
+					(12fps).
+					For animated GIF files with multiple frames, a frame will be added to the timeline for each image
+					frame in the GIF.
+					The delay for each frame in the animated GIF will also be loaded in the timeline as well.
+
+					<h2 style="font-size: 18px;">Editing the GIF Timeline</h2>
+					Edit the GIF timeline by moving frames. Drag and drop frames to rearrange the order of frames in the
+					timeline.
+					You can duplicate frames and you can edit the delay for each frame.
+					Increasing the delay causes the frame to pause longer and consequently increases the duration of the
+					GIF animation.
+					<br>
+					You can disable a frame from showing up in the final GIF animation by clicking the checkbox in the
+					frame. To enable or disable
+					a range of frames you can use the drop dropdown menu in the timeline header controls.
+
+					<!-- <h2 style="font-size: 18px;">How do I load files for my GIF?</h2> -->
+				</div>
+			</div>
+			<div id="sidebar" style="float: right;">
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</section>
+
+	<section style="padding: 25px 0px 0px 0px;">
+		<div class="tool-summary">
+			<div style="float: left;">
+				<!-- https://www.w3schools.com/html/tryit.asp?filename=tryhtml_lists_unordered_none -->
+				<ul style="list-style-type:none; padding-left: 2;">
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/crop-tool">Crop image online</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/background-eraser-tool">Background eraser</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/tutorial/create-circular-image-online">Create circular
+							image</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/flip-image">Flip image online</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/lasso-tool">Lasso</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/user-guide/tools">Tools List...</a>
+					</li>
+				</ul>
+			</div>
+			<div style="float: left;">
+				<!-- https://www.w3schools.com/html/tryit.asp?filename=tryhtml_lists_unordered_none -->
+				<ul style="list-style-type:none; padding-left: 2;">
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/adjust-image-brightness">Change brightness</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/adjust-image-contrast">Adjust contrast</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/grayscale-image">Create grayscale</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/adjust-image-saturation">Saturate/desaturate image</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/apply-duotone-effect">Duotone</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/invert-image-colors">Invert colors</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/adjust-image-hue">Hue</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/apply-sepia">Sepia</a>
+					</li>
+
+				</ul>
+
+			</div>
+			<div style="float: left;">
+				<!-- https://www.w3schools.com/html/tryit.asp?filename=tryhtml_lists_unordered_none -->
+				<ul style="list-style-type:none; padding-left: 2;">
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/dot-screen-halftone">Dot Screen Halftone</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/spherize-image">Spherize Image</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/add-vignette-effect">Add Vignette</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/image/tilt-shift-blur-filter">Tilt Shift</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/gif/animated-gif-maker">Create a GIF</a>
+					</li>
+					<li>
+						<a style="font-size: 14px; color: rgb(80, 80, 80);"
+							href="https://www.gifgit.com/gif/video-to-gif">Video to GIF</a>
+					</li>
+				</ul>
+
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="tool-summary">
+			<div style="float: left;">
+				<span style="font-size: 12px;">
+					Copyright © 2018 - 2019 Gifgit.com Free Online Image Editor, All Rights Reserved.
+				</span>
+			</div>
+			<div style="float: right;">
+				<a style="color: #6b6b6b; font-size: 12px; text-decoration: none; padding: 0px 0px 0px 12px;"
+					href="https://www.gifgit.com/about">About</a>
+				<a style="color: #6b6b6b; font-size: 12px; text-decoration: none; padding: 0px 0px 0px 12px;"
+					href="https://www.gifgit.com/privacy">Privacy Policy</a>
+				<a style="color: #6b6b6b; font-size: 12px; text-decoration: none; padding: 0px 0px 0px 12px;"
+					href="https://www.gifgit.com/terms">Terms</a>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</footer>
+
+	<div style="display: none;">
+
+		<form id="continueEditForm" action="https://www.gifgit.com/gif/crop" method="POST">
+			<!-- Filled with the dataURL of the generated cropped GIF -->
+			<textarea id="sendGIFData" name="gif_dataURL" rows="4" cols="50">				</textarea>
+		</form>
+	</div>
+
+	<!-- jsgif -->
+	<script src="./animated.gif.maker_files/b64.js"></script>
+	<script src="./animated.gif.maker_files/LZWEncoder.js"></script>
+	<script src="./animated.gif.maker_files/NeuQuant.js"></script>
+	<script src="./animated.gif.maker_files/GIFEncoder.js"></script>
+	<!-- gifuct -->
+	<script src="./animated.gif.maker_files/gif.js"></script>
+	<script src="./animated.gif.maker_files/bytestream.js"></script>
+	<script src="./animated.gif.maker_files/dataparser.js"></script>
+	<script src="./animated.gif.maker_files/parsers.js"></script>
+	<script src="./animated.gif.maker_files/schema.js"></script>
+
+	<script src="./animated.gif.maker_files/animated-gif-maker.js"></script>
+</body>
+
+</html>

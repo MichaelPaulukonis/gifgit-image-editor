@@ -1,0 +1,218 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	overflow-y: scroll;
+	font-family: arial;
+}
+
+.continue-gif-edit-link {
+  cursor: pointer;
+  color: #106ab0;
+  font-size: 14px;
+}
+
+.continue-gif-edit-link:hover {
+  text-decoration: underline;
+}
+
+.ad_unit_header {
+    display: block;
+}
+
+.ad_unit_sidebar_1 {
+  display: block;
+ }
+ 
+ .ad_unit_footer {
+  display: block;
+}
+
+.new-gif-link-btn {
+	cursor: pointer; color: #777; font-size: 13px;
+}
+
+.new-gif-link-btn:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	color: #222;
+}
+
+.tool-summary {
+	text-align: left;
+	line-height: 24px;
+	margin: auto;
+	padding: 15px;
+}
+
+/*
+	Responsive header
+	https://www.w3schools.com/howto/howto_css_responsive_header.asp
+*/
+/* Style the header with a grey background and some padding */
+.header {
+  overflow: hidden;
+  /*background-color: #f1f1f1;*/
+  padding: 15px 10px 0px 10px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  margin: 0px 4px 0px 0px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  /*border-radius: 4px;*/
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: segoe ui;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: #ddd;
+  background-color: rgb(242,242,245);
+  color: black;
+}
+
+/* Style the active/current link*/
+.header a.active {
+	/*
+	background-color: dodgerblue;
+	color: white;
+	*/
+	background-color: rgb(242,242,245);
+}
+
+/* Float the link section to the right */
+.header-right {
+	padding: 4px 0px 0px 0px;
+	float: left;
+}
+
+/* Ad Unit Styles */
+.ad_unit_header-container {
+  display: block;
+  margin: 18px auto 0px auto;
+  padding: 4px 0px;
+  width: 1000px;
+  background-color: #f4f4f6;
+}
+
+.ad_unit_header {
+	width: 728px;
+	height: 90px;
+	margin: auto;
+}
+
+#main-content {
+  float: left;
+  width: 700px;
+}
+
+.ad_unit_sidebar_1 {
+  background-color: #f4f4f6;
+	width: 300px;
+	height: 250px;
+	margin: auto;
+}
+
+.ad_unit_footer {
+  background-color: #f4f4f6;
+	width: 970px;
+	height: 90px;
+	margin: auto;
+}
+
+footer {
+  width: 100%;
+	background-color: #f0f3f4;
+	margin: 20px 0px 0px 0px;
+	border-top: 1px solid #e5e5e5;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 600px) {
+	.header a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+	
+	.header-right {
+		float: none;
+	}
+  
+	.tool-summary {
+		width: 95%;
+	}
+	
+  .ad_unit_header-container {
+    width: 100%;
+    margin: auto;
+  }
+	
+	.ad_unit_header {
+		width: 320px;
+		height: 50px;
+		margin: auto;
+	}
+	
+	#main-content{
+	  width: 100%;
+	}
+	
+	#sidebar {
+	  margin: 20px 0px 0px 0px;
+	  width: 100%;
+	}
+	
+	#sidebar-content{
+	  display: none;
+	}
+	
+	.ad_unit_sidebar_1 {
+		width: 320px;
+		height: 50px;
+		margin: auto;
+	}
+	
+  .ad_unit_sidebar_1_img {
+		width: 320px;
+		height: 50px;
+		margin: auto;
+	}
+	
+	.ad_unit_footer {
+		width: 300px;
+		height: 250px;
+		margin: auto;
+	}
+	
+	#glyph-img {
+		width: 90%;
+	}
+}
+
+/*
+	https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+*/
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1024px) {
+	.tool-summary {
+		width: 1000px;
+	}
+
+}

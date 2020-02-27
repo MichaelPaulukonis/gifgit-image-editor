@@ -1,0 +1,427 @@
+/* Allstate Objektiv fonts */
+@font-face {
+  font-family: 'Allstate Objektiv';
+  font-style: italic;
+  font-weight: 300;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-LightItalic.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-LightItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Allstate Objektiv';
+  font-style: italic;
+  font-weight: 400;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Italic.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Allstate Objektiv';
+  font-style: italic;
+  font-weight: 500;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-MediumItalic.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-MediumItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Allstate Objektiv';
+  font-style: italic;
+  font-weight: 700;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-BoldItalic.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-BoldItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Allstate Objektiv';
+  font-style: italic;
+  font-weight: 800;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-ExtraBoldItalic.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-ExtraBoldItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Allstate Objektiv';
+  font-style: normal;
+  font-weight: 300;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Light.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Allstate Objektiv';
+  font-style: normal;
+  font-weight: 400;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Regular.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Allstate Objektiv';
+  font-style: normal;
+  font-weight: 500;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Medium.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Allstate Objektiv';
+  font-style: normal;
+  font-weight: 700;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Bold.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Allstate Objektiv';
+  font-style: normal;
+  font-weight: 800;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-ExtraBold.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-ExtraBold.ttf) format('truetype');
+}
+
+/* Objektiv Mk2 fonts */
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: italic;
+  font-weight: 100;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Thin.Italic.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Thin.Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: italic;
+  font-weight: 300;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Light.Italic.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Light.Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: italic;
+  font-weight: 400;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Regular.Italic.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Regular.Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: italic;
+  font-weight: 500;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-MediumItalic.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-MediumItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: italic;
+  font-weight: 700;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Bold.Italic.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Bold.Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: italic;
+  font-weight: 800;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.ExtraBold.Italic.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.ExtraBold.Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: normal;
+  font-weight: 100;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Thin.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Thin.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: normal;
+  font-weight: 300;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Light.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: normal;
+  font-weight: 400;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Regular.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: normal;
+  font-weight: 500;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Medium.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateObjektiv/AllstateObjektiv-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: normal;
+  font-weight: 700;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Bold.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Objektiv Mk2';
+  font-style: normal;
+  font-weight: 800;
+  src:  url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.ExtraBold.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ObjektivMk2/ObjektivMk2.ExtraBold.ttf) format('truetype');
+}
+
+/* Allstate Sans fonts */
+@font-face {
+  font-family: 'Allstate Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Regular.eot"); 
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Regular.eot?#iefix") format('embedded-opentype'),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Regular.woff2") format("woff2"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Regular.woff") format("woff"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Regular.ttf") format("truetype"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Regular.svg#AllstateSansW-Regular") format("svg"); 
+}
+
+@font-face {
+  font-family: 'Allstate Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Medium.eot"); 
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Medium.eot?#iefix") format('embedded-opentype'),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Medium.woff2") format("woff2"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Medium.woff") format("woff"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Medium.ttf") format("truetype"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Medium.svg#AllstateSansW-Medium") format("svg"); 
+}
+
+@font-face {
+  font-family: 'Allstate Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-LightItalic.eot"); 
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-LightItalic.eot?#iefix") format('embedded-opentype'),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-LightItalic.woff2") format("woff2"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-LightItalic.woff") format("woff"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-LightItalic.ttf") format("truetype"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-LightItalic.svg#AllstateSansW-LightItalic") format("svg"); 
+}
+
+@font-face {
+  font-family: 'Allstate Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-RegularItalic.eot"); 
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-RegularItalic.eot?#iefix") format('embedded-opentype'),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-RegularItalic.woff2") format("woff2"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-RegularItalic.woff") format("woff"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-RegularItalic.ttf") format("truetype"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-RegularItalic.svg#AllstateSansW-RegularItalic") format("svg"); 
+}
+
+@font-face {
+  font-family: 'Allstate Sans';
+  font-style: italic;
+  font-weight: 500;
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-MediumItalic.eot"); 
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-MediumItalic.eot?#iefix") format('embedded-opentype'),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-MediumItalic.woff2") format("woff2"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-MediumItalic.woff") format("woff"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-MediumItalic.ttf") format("truetype"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-MediumItalic.svg#AllstateSansW-MediumItalic") format("svg"); 
+}
+
+@font-face {
+  font-family: 'Allstate Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BoldItalic.eot"); 
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BoldItalic.eot?#iefix") format('embedded-opentype'),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BoldItalic.woff2") format("woff2"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BoldItalic.woff") format("woff"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BoldItalic.ttf") format("truetype"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BoldItalic.svg#AllstateSansW-BoldItalic") format("svg"); 
+}
+
+@font-face {
+  font-family: 'Allstate Sans';
+  font-style: italic;
+  font-weight: 900;
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BlackItalic.eot"); 
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BlackItalic.eot?#iefix") format('embedded-opentype'),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BlackItalic.woff2") format("woff2"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BlackItalic.woff") format("woff"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BlackItalic.ttf") format("truetype"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-BlackItalic.svg#AllstateSansW-BlackItalic") format("svg"); 
+}
+
+@font-face {
+  font-family: 'Allstate Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Light.eot"); 
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Light.eot?#iefix") format('embedded-opentype'),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Light.woff2") format("woff2"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Light.woff") format("woff"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Light.ttf") format("truetype"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Light.svg#AllstateSansW-Light") format("svg"); 
+}
+
+@font-face {
+  font-family: 'Allstate Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Bold.eot"); 
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Bold.eot?#iefix") format('embedded-opentype'),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Bold.woff2") format("woff2"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Bold.woff") format("woff"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Bold.ttf") format("truetype"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Bold.svg#AllstateSansW-Bold") format("svg"); 
+}
+
+@font-face {
+  font-family: 'Allstate Sans';
+  font-style: normal;
+  font-weight: 900;
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Black.eot"); 
+  src: url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Black.eot?#iefix") format('embedded-opentype'),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Black.woff2") format("woff2"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Black.woff") format("woff"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Black.ttf") format("truetype"),
+    url("//cdn.revjet.com/~cdn/Ads/ad_shared/fonts/AllstateSansW/AllstateSansW-Black.svg#AllstateSansW-Black") format("svg"); 
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic';
+  font-style: italic;
+  font-weight: 700;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01BdObl.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01BdObl.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01Bd.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01Bd.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic';
+  font-style: italic;
+  font-weight: 200;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01XLtObl.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01XLtObl.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic';
+  font-style: italic;
+  font-weight: 400;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01BkObl.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01BkObl.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic';
+  font-style: italic;
+  font-weight: 500;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01MdObl.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01MdObl.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic';
+  font-style: italic;
+  font-weight: 600;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01DmObl.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01DmObl.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01XLt.woff2) format('woff2'), 
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01XLt.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01Bk.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01Bk.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW07Md.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW07Md.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01Dm.woff2) format('woff2'), 
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01Dm.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic Condensed';
+  font-style: italic;
+  font-weight: 400;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01BkCnObl.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01BkCnObl.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic Condensed';
+  font-style: italic;
+  font-weight: 500;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01MdCnObl.woff2) format('woff2'),
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01MdCnObl.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01BkCn.woff2) format('woff2'), 
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01BkCn.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic Condensed';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01MdCn.woff2) format('woff2'), 
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01MdCn.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic Condensed';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01DmCn.woff2) format('woff2'), 
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01DmCn.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'ITC Avant Garde Gothic Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01BdCn.woff2) format('woff2'), 
+        url(https://cdn.revjet.com/~cdn/Ads/ad_shared/fonts/ITCAvantGardeGothic/ITCAvantGardeGothicW01BdCn.ttf) format('truetype');
+}
